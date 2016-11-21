@@ -1,29 +1,47 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title>canvas绘图1</title>
 	</head>
+
 	<body>
 		<canvas id="canvas1" width="800" height="600"></canvas>
 		<script type="text/javascript">
-		   //获得画布元素
-			var canvas1=document.getElementById("canvas1");
+			//获得画布元素
+			var canvas1 = document.getElementById("canvas1");
 			//获得2维绘图的上下文
-			var ctx=canvas1.getContext("2d");
-			
+			var ctx = canvas1.getContext("2d").getcontext;
+
 			//设置线宽
-			ctx.lineWidth=10;
+			ctx.lineWidth = 10;
 			//设置线的颜色
-			ctx.strokeStyle="blue";
-			
+			ctx.strokeStyle = "blue";
+
 			//将画笔移动到00点
-			ctx.moveTo(0,0);
+			ctx.moveTo(0, 0);
 			//画线到800，600的坐标
-			ctx.lineTo(800,600);
-			
+			ctx.lineTo(800, 600);
+
 			//执行画线
 			ctx.stroke();
+
+			//设置线宽
+			ctx.lineWidth = 10;
+			//设置线的颜色
+			ctx.strokeStyle = "blue";
+			//将画笔移到x0,y0处
+			context.moveTo(x0, y0);
+			//从x0,y0到x1,y1画一条线
+			ontext.lineTo(x1, y1);
+			//从x1,y1到x2,y2画条线
+			ontext.lineTo(x2, y2);
+			//执行填充
+			ontext.fill();
+			//执行画线
+			context.stroke();
 		</script>
 	</body>
+
 </html>

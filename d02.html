@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas绘图2</title>
+	</head>
+
+	<body>
+		<canvas id="canvas1" width="800" height="600"></canvas>
+		<script type="text/javascript">
+			//获得画布元素
+			var canvas1 = document.getElementById("canvas1");
+			//获得2维绘图的上下文
+			var ctx = canvas1.getContext("2d");
+
+			//设置线宽
+			ctx.lineWidth = 10;
+			//设置线的颜色
+			ctx.strokeStyle = "blue";
+			
+			canvas1.onmousemove=function(e){
+				//划线到当前客户端的x与y座标
+				ctx.lineTo(e.clientX, e.clientY);
+				//执行画线
+				ctx.stroke();
+			}
+		</script>
+	</body>
+
+</html>

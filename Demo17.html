@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script>
+			var canvas1;
+			var ctx;
+			var width;
+			var height;
+			var msg;
+			window.onload = function() {
+				canvas1 = document.getElementById("canvas1");
+				msg = document.getElementById("msg");
+				ctx = canvas1.getContext("2d");
+				width = canvas1.width;
+				height = canvas1.height;
+				ctx.fillRect(0, 0, width, height);
+				ctx.moveTo(0, 0);
+				ctx.lineTo(100, 100);
+				ctx.strokeStyle = "red";
+				ctx.lineWidth = 2;
+				ctx.stroke();
+				canvas1.onmousemove = function(e) {
+					ctx.lineTo(e.clientX, e.clientY);
+					ctx.stroke();
+				}
+				canvas1.ontouchmove = function(e) {
+					e.preventDefault();
+					var touchE=e.targetTouches[0]
+					msg.innerHTML += touchE.clientX+"，"+touchE.clientY+ "<br/>";
+					ctx.lineTo(touchE.clientX, touchE.clientY);
+					ctx.stroke();
+				}
+				canvas1.ontouchstart = function() {
+					msg.innerHTML += "ontouchstart" + "<br/>";
+				}
+				canvas1.ontouchend = function() {
+					msg.innerHTML += "ontouchend" + "<br/>";
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<canvas id="canvas1" width="500" height="500">不支持</canvas>
+		<div id="msg"></div>
+	</body>
+
+</html>

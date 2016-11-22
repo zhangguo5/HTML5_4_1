@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas绘图2 直线</title>
+	</head>
+	<body>
+		<canvas id="canvas1" width="600" height="600"></canvas>
+		<img src="img/apple.png" id="apple" hidden="hidden" />
+		<script type="text/javascript">
+		   //必须当页面中的图片资源加载成功
+			window.onload = function() {
+				//获得画布元素
+				var canvas1 = document.getElementById("canvas1");
+				//获得2维绘图的上下文
+				var ctx = canvas1.getContext("2d");
+
+				//设置线宽
+				ctx.lineWidth = 10;
+				//设置线的颜色
+				ctx.strokeStyle = "dodgerblue";
+				ctx.moveTo(0,0);
+				ctx.strokeRect(0,0,600,600);
+
+				//图片
+				var apple = document.getElementById("apple");
+				//将图像绘制到画布的，图片的左上角
+				ctx.drawImage(apple, 300-52, 300-63);
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>绘制圆弧</title>
+	</head>
+	<body>
+		<canvas id="canvas1" width="600" height="600"></canvas>
+		<script type="text/javascript">
+			//获得画布元素
+			var canvas1 = document.getElementById("canvas1");
+			//获得2维绘图的上下文
+			var ctx = canvas1.getContext("2d");
+
+			//设置线宽
+			ctx.lineWidth = 10;
+			//设置线的颜色
+			ctx.strokeStyle ="dodgerblue";
+			
+			//画一段圆弧,300,300是圆心，200是半径，0是超始角度，Math.PI是结束角度,是否逆时钟
+			ctx.arc(300,300,200,0,Math.PI,false);
+			//闭合
+			ctx.closePath();
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.fillStyle="aquamarine";
+			ctx.arc(300,300,100,0,Math.PI*2,false);
+			ctx.fill();
+		</script>
+	</body>
+</html>

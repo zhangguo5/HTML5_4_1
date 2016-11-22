@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>路径与closePath，beginPath,fill</title>
+	</head>
+	<body>
+		<canvas id="canvas1" width="600" height="600"></canvas>
+		<script type="text/javascript">
+			//获得画布元素
+			var canvas1 = document.getElementById("canvas1");
+			//获得2维绘图的上下文
+			var ctx = canvas1.getContext("2d");
+
+			//设置线宽
+			ctx.lineWidth = 10;
+			//设置线的颜色
+			ctx.strokeStyle = "blue";
+			
+			ctx.moveTo(0,0);  //移动画笔到0,0点
+			ctx.lineTo(300,300);  //画线到300,300的位置
+			ctx.stroke();  //执行描边
+			
+			ctx.beginPath();  //清空子路径，一般用于开始路径的创建
+			ctx.strokeStyle = "red";
+			ctx.moveTo(300,300);
+			ctx.lineTo(0,595);  //画线到0,300的位置
+			ctx.lineTo(595,595);  //画线到右下角
+			ctx.closePath();  //闭合
+			//ctx.stroke();  //执行描边
+			ctx.fillStyle="lightgreen";  //设置填充颜色
+			ctx.fill();  //执行填充
+		</script>
+	</body>
+</html>

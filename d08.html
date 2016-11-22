@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>随机颜色与简单动画</title>
+	</head>
+	<body>
+		<canvas id="canvas1" width="1000" height="650"></canvas>
+		<img src="img/apple.png" id="apple" hidden="hidden" />
+		<script type="text/javascript">
+			var magicCircle = {
+				randomColor: function() {
+					return "#" + parseInt(Math.random() * 16777216).toString(16);
+				},
+				getNum: function(min, max) {
+					return parseInt(Math.random() * (max - min)) + min;
+				},
+				r: 10,
+				run: function() {
+					//获得画布元素
+					this.canvas1 = document.getElementById("canvas1");
+					//获得2维绘图的上下文
+					this.ctx = this.canvas1.getContext("2d");
+					//运行
+					setInterval(this.draw, 100);
+					this.bindEvent();
+				},
+				draw: function() {
+					magicCircle.ctx.beginPath();
+					magicCircle.ctx.lineWidth = magicCircle.getNum(1,10);
+					magicCircle.ctx.strokeStyle = magicCircle.randomColor();
+					magicCircle.ctx.arc(magicCircle.getNum(1,1000), magicCircle.getNum(1,600), magicCircle.r, 0, Math.PI * 2);
+					magicCircle.ctx.stroke();
+					magicCircle.r += 10;
+					if(magicCircle.r > 300) magicCircle.r = 10;
+				},
+				bindEvent:function()
+				{
+					this.canvas1.onmousemove=function(e){
+						magicCircle.ctx.lineWidth = magicCircle.getNum(1,10);
+						magicCircle.ctx.strokeStyle = magicCircle.randomColor();
+						magicCircle.ctx.arc(e.clientX, e.clientY, magicCircle.r, 0, Math.PI * 2);
+						magicCircle.ctx.stroke();
+						magicCircle.r += 10;
+					    if(magicCircle.r > 300) magicCircle.r = 10;
+					}
+				}
+			};
+			
+			magicCircle.run();
+		</script>
+	</body>
+
+</html>

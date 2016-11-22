@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas绘图2 直线</title>
+	</head>
+	<body>
+		<canvas id="canvas1" width="600" height="600"></canvas>
+		<img src="img/apple.png" id="apple" hidden="hidden" />
+		<script type="text/javascript">
+		   //必须当页面中的图片资源加载成功
+			window.onload = function() {
+				//获得画布元素
+				var canvas1 = document.getElementById("canvas1");
+				//获得2维绘图的上下文
+				var ctx = canvas1.getContext("2d");
+
+				//设置线宽
+				ctx.lineWidth = 1;
+				//设置线的颜色
+				ctx.strokeStyle = "dodgerblue";
+				ctx.moveTo(0,0);
+				ctx.strokeRect(0,0,600,600);
+
+				//绘制文字
+				//描边
+				ctx.font="50px microsoft yahei";
+				ctx.strokeText("Hello Zhangguo",20,100);
+				//填充
+				ctx.fillStyle=
+				ctx.fillText("Hello Zhangguo",20,200);
+			}
+			
+		</script>
+	</body>
+
+</html>

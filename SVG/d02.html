@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>引入SVG的方法</title>
+		<style type="text/css">
+			body{
+				background:url(me.svg);
+			}
+		</style>
+	</head>
+	<body>
+		<h2>embed</h2>
+		<embed src="me.svg" type="image/svg+xml" width="108" height="108" /> 优势：所有主要浏览器都支持，并允许使用脚本 缺点：不推荐在HTML4和XHTML中使用（但在HTML5允许）
+		<h2>object</h2>
+		<object data="me.svg" type="image/svg+xml" width="108" height="108"></object> 优势：所有主要浏览器都支持，并支持HTML4，XHTML和HTML5标准 缺点：不允许使用脚本。
+		<h2>iframe</h2>
+		<iframe src="me.svg" frameborder="0" width="108" height="108"></iframe> 优势：所有主要浏览器都支持，并允许使用脚本 缺点：不推荐在HTML4和XHTML中使用（但在HTML5允许）
+		<h2>直接嵌入</h2>
+		<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="108" height="108">
+			<circle cx="54" cy="54" r="50" stroke="blue" stroke-width="2" fill="blue" />
+		</svg>
+		在Firefox、Internet Explorer9、谷歌Chrome和Safari中，你可以直接在HTML嵌入SVG代码。 注意：SVG不能直接嵌入到Opera。
+		<h2>image</h2>
+		<img src="me.svg" width="108" height="108" />
+	</body>
+
+</html>
